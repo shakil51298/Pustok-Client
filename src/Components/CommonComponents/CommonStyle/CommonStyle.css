@@ -1,0 +1,13 @@
+.removeDeco :hover{
+    text-decoration: none;
+}
+.brandTexts{
+    color: rgba(98,171,0,255);
+}
+.navBarText{
+    font-size: larger;
+}
+.navBarText :hover  {
+    text-decoration: none;
+    color: cadetblue;
+}

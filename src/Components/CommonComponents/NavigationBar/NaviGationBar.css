@@ -1,0 +1,10 @@
+.removeDeco :hover{
+    text-decoration: none;
+}
+.navBarText{
+    font-size: larger;
+}
+.navBarText :hover  {
+    text-decoration: none;
+    color: cadetblue;
+}

@@ -1,0 +1,11 @@
+.bestSeller{
+    background-image: url(../../../images/books/photo-1521123845560-14093637aa7d.jpg);
+    height: 500px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.brandTexts{
+    color: rgba(98,171,0,255);
+}
