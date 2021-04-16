@@ -1,5 +1,4 @@
 import React from 'react';
-import { useEffect } from 'react';
 import { useState } from 'react';
 import { Carousel } from 'react-bootstrap';
 import b1 from '../../../images/books/b-1.jpg'

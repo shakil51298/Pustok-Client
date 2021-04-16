@@ -2,60 +2,57 @@ import React from 'react';
 import cardImg from '../../../images/CardImg.jpg'
 import cardImg2 from '../../../images/card2.jpg'
 import { Link } from 'react-router-dom';
-import help from '../../../images/icons/Help.png'
-import car from '../../../images/icons/car.png'
-import cashBack from '../../../images/icons/CASHBACK.png'
-import guarantee from '../../../images/icons/Security_guarantee.png'
+import './ShippingAdvantage.css'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {faCalendarAlt, faCashRegister, faFilePrescription, faTruckMoving } from '@fortawesome/free-solid-svg-icons'
 
 
 const ShippingAdvantage = () => {
     return (
         <section className="container mt-5">
             <div className="row">
-                <div className="col-md-3">
-                    <div className="shadow-lg">
-                        <div className="card-body">
-                            <div className="d-flex d-flex justify-content-between align-items-center">
-                                <img src={car} width="20%" alt="" />
-                                <div className="">
-                                    <p>Free Shipping Item Orders Over $500</p>
-                                </div>
+                <div className="col">
+                    <div className="card p-4">
+                        <div className="d-flex justify-content-between align-items-center">
+                            <FontAwesomeIcon className="icons" icon={faTruckMoving} />
+                            <div className="">
+                                <h5>Free Shipping Item</h5>
+                                <p>Order over $500</p>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div className="col-md-3">
-                    <div className="shadow-lg">
-                        <div className="card-body">
-                            <div className="d-flex d-flex d-flex justify-content-between align-items-center">
-                                <img src={guarantee} width="20%" alt="" />
-                                <div className="">
-                                    <p>Free Shipping Item Orders Over $500</p>
-                                </div>
+                <div className="col">
+                    <div className="card p-4">
+                        <div className="d-flex justify-content-between align-items-center">
+                            <FontAwesomeIcon className="icons" icon={faCashRegister} />
+                            <div className="">
+                                <h5>Money Back Guarantee</h5>
+                                <p>100% money back</p>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div className="col-md-3">
-                    <div className="shadow-lg">
-                        <div className="card-body">
-                            <div className="d-flex d-flex d-flex justify-content-between align-items-center">
-                                <img src={cashBack} width="20%" alt="" />
-                                <div className="">
-                                    <p>Free Shipping Item Orders Over $500</p>
-                                </div>
+            </div>
+            <div className="row mt-5">
+                <div className="col">
+                    <div className="card p-4">
+                        <div className="d-flex justify-content-between align-items-center">
+                            <FontAwesomeIcon className="icons" icon={faCalendarAlt} />
+                            <div className="">
+                                <h5>Cash On Delivery</h5>
+                                <p>Order over $500</p>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div className="col-md-3">
-                    <div className="shadow-lg">
-                        <div className="card-body">
-                            <div className="d-flex justify-content-between align-items-center">
-                                <img src={help} width="20%" alt="" />
-                                <div className="">
-                                    <p>Free Shipping Item Orders Over $500</p>
-                                </div>
+                <div className="col">
+                    <div className="card p-4">
+                        <div className="d-flex justify-content-between align-items-center">
+                            <FontAwesomeIcon className="icons" icon={faFilePrescription} />
+                            <div className="">
+                                <h5>Help & Support</h5>
+                                <p>Call us : + 0123.4567.89</p>
                             </div>
                         </div>
                     </div>

@@ -1,20 +1,25 @@
 import React from 'react';
+import { useHistory } from 'react-router';
+import { Link } from 'react-router-dom';
 
-const BooksCard = ({ book }) => {
-    const { booksName, discount, headLine, img, leteasePrice, priceWas, type } = book
-    console.log(book.booksName);
+const BooksCard = ({ bookData }) => {
+    const { BooksPrice, Discount , authorName , bookType ,booksImageUril,booksName ,description , _id} = bookData
+    const history = useHistory()
+    const handleBooksDetails = () =>{
+        history.push(`/checkOut/${_id}`)
+    }
     return (
-        <div className="col-md-4 mt-5">
+        <div className="col-md-4 mt-5" style={{cursor:'pointer'}} onClick={handleBooksDetails}>
             <div className="shadow-lg card">
-                <p className="text-center">{type}</p>
-                <p className="text-center">{headLine}</p>
-                <img height="270px" src={img} alt="" />
+                <p className="text-center mt-2">{bookType}</p>
+                <Link><p className="text-center text-uppercase">{description}</p></Link>
+                <img height="270px" src={booksImageUril} alt="" />
                 <div className="card-body">
                     <h5 className="text-center">{booksName}</h5>
                     <div className="row">
-                        <div className="col-md-4"><small style={{ color: "rgba(98,171,0,255)" }}>{leteasePrice}</small></div>
-                        <div className="col-md-4"><small ><del>{priceWas}</del></small></div>
-                        <div className="col-md-4"><small className="badge bg-danger text-white">{discount}</small></div>
+                        <div className="col-md-4"><small style={{ color: "rgba(98,171,0,255)" }}>{BooksPrice} $</small></div>
+                        <div className="col-md-4"><small ><del>50$</del></small></div>
+                        <div className="col-md-4"><small className="badge bg-danger text-white">{Discount}</small></div>
                     </div>
                 </div>
             </div>
