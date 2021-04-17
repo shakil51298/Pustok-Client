@@ -23,4 +23,4 @@ const HomeChieldCompo = () => {
     );
 };
 
-export default HomeChieldCompo;<h3>Home Chield</h3>
+export default HomeChieldCompo;

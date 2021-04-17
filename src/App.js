@@ -15,6 +15,8 @@ import OrderDetails from './Components/OrderDetails/OrderDetails';
 import PaymentGateWay from './Components/PaymentSystem/PaymentGateWay/PaymentGateWay';
 import OrderList from './Components/DashBoard/OrderList/OrderList';
 import AllAdmins from './Components/DashBoard/AllAdmins/AllAdmins';
+import CoustomerReview from './Components/DashBoard/CoustomerReview/CoustomerReview';
+import UserProfile from './Components/UserProfille/UserProfile';
 
 export const userContext = createContext()
 
@@ -34,18 +36,21 @@ function App() {
           <Route path="/dashboard">
             <DashBoard/>
           </Route>
-          <Route path="/checkOut/:booksId">
+          <ProtectedPage path="/checkOut/:booksId">
             <CheckOut/>
-          </Route>
+          </ProtectedPage>
           <Route path="/addBook">
             <AddBooks/>
           </Route>
           <Route path="/orderList">
             <OrderList/>
           </Route>
-          <Route path="/order">
-            <OrderDetails/>
-          </Route>
+          <ProtectedPage path="/review">
+            <CoustomerReview/>
+          </ProtectedPage>
+          <ProtectedPage path="/userProfile">
+            <UserProfile/>
+          </ProtectedPage>
           <Route path="/payment/:bookId/:bookPrice">
             <PaymentGateWay/>
           </Route>

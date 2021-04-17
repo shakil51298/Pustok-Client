@@ -7,7 +7,6 @@ import SideBar from '../SideBar/SideBar';
 const AllAdmins = () => {
     const [admins, setAdmins] = useState([])
     const [loggedInUser , setLoggedInUser] = useContext(userContext)
-    console.log(loggedInUser);
     useEffect(() => {
         fetch('http://localhost:5000/AllAdmins')
             .then(res => res.json())

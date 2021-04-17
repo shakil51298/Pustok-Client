@@ -1,25 +1,33 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
+import { userContext } from '../../../App';
 import NavigationBar from '../../CommonComponents/NavigationBar/NavigationBar';
 import SideBar from '../SideBar/SideBar';
 
 const OrderList = () => {
     const [orders, setOrders] = useState([])
-    const [status , setStatus] = useState(null)
-    console.log(status);
-    console.log();
+    const [status, setStatus] = useState(null)
+    const [loggedInUser , setLoggedInUser] = useContext(userContext)
+    
     useEffect(() => {
-        axios('http://localhost:5000/orders')
-            .then(data => {
-                setOrders(data.data);
-            })
+        const userEmail = loggedInUser.email;
+        fetch('http://localhost:5000/orders', {
+            method: 'POST',
+            body: JSON.stringify({userEmail}),
+            headers: {
+                'Content-type': 'application/json; charset=UTF-8',
+            }
+        }
+        )
+        .then(res => res.json())
+        .then(data => setOrders(data))
     }, [])
 
-    const handleCheckStatus = (e , booksId) =>{
-        setStatus(e.target.value )
+    const handleCheckStatus = (e, booksId) => {
+        setStatus(e.target.value)
         console.log(booksId);
     }
-     return (
+    return (
         <div>
             <NavigationBar />
             <div className="row">
@@ -29,6 +37,7 @@ const OrderList = () => {
                     <table className="table">
                         <thead>
                             <tr>
+                                <th scope="col">#</th>
                                 <th scope="col">Name</th>
                                 <th scope="col">Email Id</th>
                                 <th scope="col">Service</th>
@@ -39,14 +48,17 @@ const OrderList = () => {
                         <tbody>
                             {
                                 orders.map((order, index) => <tr>
+                                    {
+                                        console.log(order.orderData.UserData.displayName)
+                                    }
                                     <td scope="row">{index + 1}</td>
+                                    <td>{order.orderData.UserData.displayName}</td>
                                     <td>{order.orderData.UserData.email}</td>
-                                    <td>{order.orderData.books.booksName}</td>
                                     <td>Credit Card</td>
                                     <td>
                                         <form action="">
-                                            <select onChange={(e)=>handleCheckStatus(e,order.orderData.books._id)} name="" id="" className="form-select form-select-lg mb-3" aria-label=".form-select-sm">
-                                                <option  className="text-danger" value="pending">Pending</option>
+                                            <select onChange={(e) => handleCheckStatus(e, order.orderData.books._id)} name="" id="" className="form-select form-select-lg mb-3" aria-label=".form-select-sm">
+                                                <option className="text-danger" value="pending">Pending</option>
                                                 <option className="text-success" value="Done">Done</option>
                                                 <option className="text-info" value="on going">On Going</option>
                                             </select>

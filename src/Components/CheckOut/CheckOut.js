@@ -34,7 +34,7 @@ const CheckOut = () => {
                         <h5 className="text-center mt-2">Check Out</h5>
                         <div className="form-group">
                         <label htmlFor="exampleInputEmail1">Email</label>
-                            <input type="email" className="form-control" value={loggedInUser.email} name="email" placeholder="Enter email" />
+                            <input type="email" className="form-control"  value={loggedInUser.email} name="email" placeholder="Enter email" />
                         </div>
                         <div className="form-group">
                         <label htmlFor="exampleInputEmail1">Name</label>

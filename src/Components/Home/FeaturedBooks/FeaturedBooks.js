@@ -14,7 +14,7 @@ const FeaturedBooks = () => {
         setBooks(data.data)})
     },[])
     return (
-        <section className="container mt-5">
+        <section className="container mt-5" id="featureBooks">
             <h2 className='text-center brandTexts' style={{ color: "rgba(98,171,0,255)" }}>Featured Products</h2>
             <div className="row">
                 {
