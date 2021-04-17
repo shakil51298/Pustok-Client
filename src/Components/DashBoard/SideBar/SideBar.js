@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './SideBar.css'
-import { faCog, faSignOutAlt, faCalendar, faHome, faGripHorizontal, faUserPlus, faUsers, faFileAlt } from '@fortawesome/free-solid-svg-icons';
+import { faCog, faSignOutAlt, faHome, faUserPlus, faFileAlt, faFolderPlus, faUser, faMailBulk, faRainbow } from '@fortawesome/free-solid-svg-icons';
 import { userContext } from '../../../App';
 
 
@@ -28,7 +28,7 @@ const SideBar = () => {
             })
     }, [])
     return (
-        <div className="sidebar d-flex flex-column justify-content-between col-md-3 py-5 px-4" style={{ height: "100vh" }}>
+        <div className="sidebar d-flex flex-column justify-content-between col-md-3 pl-5 py-5 px-4" style={{ height: "100vh" }}>
             <ul className="list-unstyled">
                 <li>
                     <Link to="/" className="text-white">
@@ -37,18 +37,18 @@ const SideBar = () => {
                 </li>
                 <li>
                     <Link to="/review" className="text-white">
-                        <FontAwesomeIcon icon={faUsers} /> <span>Review</span>
+                        <FontAwesomeIcon icon={faRainbow} /> <span>Review</span>
                     </Link>
                 </li>
                 {
                     isAdmin && loggedInUser.email ? <li>
                         <Link to="/orderList" className="text-white">
-                            <FontAwesomeIcon icon={faUserPlus} /> <span>Manage Order</span>
+                            <FontAwesomeIcon icon={faFileAlt} /> <span>Manage Order</span>
                         </Link>
                     </li>
                         : <li>
                             <Link to="/orderList" className="text-white">
-                                <FontAwesomeIcon icon={faUserPlus} /> <span>Orders</span>
+                                <FontAwesomeIcon icon={faFileAlt} /> <span>Orders</span>
                             </Link>
                         </li>
                 }
@@ -57,7 +57,7 @@ const SideBar = () => {
 
                         <li>
                             <Link to="/manageShop" className="text-white">
-                                <FontAwesomeIcon icon={faUserPlus} /> <span>Manage Shop</span>
+                                <FontAwesomeIcon icon={faMailBulk} /> <span>Manage Shop</span>
                             </Link>
                         </li>
                         <li>
@@ -67,12 +67,12 @@ const SideBar = () => {
                         </li>
                         <li>
                             <Link to="/allAdmin" className="text-white">
-                                <FontAwesomeIcon icon={faUserPlus} /> <span> Our Admins</span>
+                                <FontAwesomeIcon icon={faUser} /> <span> Our Admins</span>
                             </Link>
                         </li>
                         <li>
                             <Link to="/addBook" className="text-white" >
-                                <FontAwesomeIcon icon={faUserPlus} /> <span>Add Book</span>
+                                <FontAwesomeIcon icon={faFolderPlus} /> <span>Add Book</span>
                             </Link>
                         </li>
                         <li>

@@ -10,7 +10,6 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import NavigationBar from '../CommonComponents/NavigationBar/NavigationBar';
 
-
 if (!firebase.apps.length) {
     firebase.initializeApp(firebaseConfig);
 } else {
@@ -18,10 +17,13 @@ if (!firebase.apps.length) {
 }
 
 const LoginPage = () => {
+
+
     let history = useHistory();
     let location = useLocation();
 
     const [loggedInUser, setLoggedInUser] = useContext(userContext)
+    console.log(loggedInUser.uid);
     let { from } = location.state || { from: { pathname: "/" } };
     const provider = new firebase.auth.GoogleAuthProvider();
     const handleGoogleSignIn = () => {
@@ -29,7 +31,7 @@ const LoginPage = () => {
             .then((result) => {
                 const user = result.user;
                 setLoggedInUser(user);
-
+                sessionStorage.setItem('userEmail' , user.email)
                 history.replace(from);
             })
             .catch((error) => {

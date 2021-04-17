@@ -39,7 +39,7 @@ const ShippingAdvantage = () => {
                     </motion.div>
                 </div>
                 <div className="row mt-5">
-                    <motion.div className="col" whileHover={{ scale: 1.1 }} whileTap={{ duration: 0.5 }}>
+                    <motion.div className="col" whileHover={{ scale: 1.1 }} whileTap={{ scale: .8}}>
                         <div className="card p-4">
                             <div className="d-flex justify-content-between align-items-center">
                                 <FontAwesomeIcon className="icons" icon={faCalendarAlt} />

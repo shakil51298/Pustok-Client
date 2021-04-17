@@ -7,19 +7,32 @@ import axios from 'axios';
 import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
+import { motion } from "framer-motion";
 
 
 
 const ManageShop = () => {
-    const [shopProducts , setShopProducuts] = useState([])
+    const [shopProducts, setShopProducuts] = useState([])
 
-    useEffect(()=>{
+    useEffect(() => {
         axios('http://localhost:5000/AllBooks')
-        .then(data => {
-            setShopProducuts(data.data);
-        })
-    },[])
+            .then(data => {
+                setShopProducuts(data.data);
+            })
+    }, [])
 
+    const handleDeleteProdcut = (id) => {
+
+        const url = `http://localhost:5000/productDelete/${id}`
+        fetch(url, {
+            method: "DELETE"
+        })
+            .then(res => {
+                alert('deleted successfully!!')
+                console.log(res);
+            })
+        console.log(id);
+    }
     return (
         <div>
             <NavigationBar />
@@ -33,29 +46,31 @@ const ManageShop = () => {
                         <thead>
                             <tr>
                                 <th scope="col">#</th>
-                                <th scope="col">Name</th>
-                                <th scope="col">Email Id</th>
-                                <th scope="col">Service</th>
-                                <th scope="col">Pay With</th>
-                                <th scope="col">Status</th>
+                                <th scope="col">Price</th>
+                                <th scope="col">Author</th>
+                                <th scope="col">Type</th>
+                                <th scope="col">Photo</th>
+                                <th scope="col">Book Name</th>
+                                <th scope="col">Remove</th>
                             </tr>
                         </thead>
                         <tbody>
                             {
-                                shopProducts.map( (product , index) =><tr>
-                                    {   
+                                shopProducts.map((product, index) => <tr>
+                                    {
                                         console.log(product)
                                     }
-                                <td>{product.BooksPrice}</td>
-                                <td>{product.authorName}</td>
-                                <td>{product.bookType}</td>
-                                <td><img src={product.booksImageUril} alt="" width='50px'/></td>
-                                <td>{product.booksName}</td>
-                                <td>
-                                    <FontAwesomeIcon icon={faTrashAlt} className="text-danger ml-3" style={{fontSize:'20px'}}/>
-                                </td>
-                                
-                            </tr>)
+                                    <td>{index + 1}</td>
+                                    <td>{product.BooksPrice}</td>
+                                    <td>{product.authorName}</td>
+                                    <td>{product.bookType}</td>
+                                    <td><img src={product.booksImageUril} alt="" width='50px' /></td>
+                                    <td>{product.booksName}</td>
+                                    <motion.td whileTap={{scale:0.8}}>
+                                        <FontAwesomeIcon icon={faTrashAlt} className="text-danger ml-3" onClick={() => handleDeleteProdcut(product._id)} style={{ fontSize: '20px', cursor: "pointer" }} />
+                                    </motion.td>
+
+                                </tr>)
                             }
                         </tbody>
                     </table>
