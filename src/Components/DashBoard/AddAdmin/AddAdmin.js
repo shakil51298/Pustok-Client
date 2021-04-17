@@ -10,8 +10,8 @@ const AddAdmin = () => {
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
     const onSubmit = data => {
         setadminData(data)
-    };
-    useEffect(() => {
+
+
         const url = 'http://localhost:5000/addAdmin';
         fetch(url, {
             method: 'POST',
@@ -22,12 +22,12 @@ const AddAdmin = () => {
         }
         )
             .then(result => {
-                console.log(result);
+                alert(`you have added ${adminData.name} as a admin`)
             })
             .catch(err => {
                 console.log(err);
             })
-    })
+    };
     return (
         <div>
             <NavigationBar />
@@ -39,13 +39,13 @@ const AddAdmin = () => {
                     </Zoom>
                     <form onSubmit={handleSubmit(onSubmit)} className="p-1 mb-5">
                         <div className="form-group">
-                            <label htmlFor="exampleInputEmail1">Email address</label>
-                            <input className="form-control" {...register("email")} />
+                            <label  htmlFor="exampleInputEmail1">Email address</label>
+                            <input type="email" className="form-control" {...register("email")} />
                             {errors.email && <span>This field is required</span>}
                         </div>
                         <div className="form-group">
                             <label htmlFor="exampleInputPassword1">Name</label>
-                            <input className="form-control" {...register("name", { required: true })} />
+                            <input type="text" className="form-control" {...register("name", { required: true })} />
                             {errors.name && <span>This field is required</span>}
                         </div>
                         <div className="text-center">

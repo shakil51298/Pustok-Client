@@ -3,7 +3,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { userContext } from '../../../App';
 import NavigationBar from '../../CommonComponents/NavigationBar/NavigationBar';
 import SideBar from '../SideBar/SideBar';
-import {Zoom} from 'react-reveal';
+import { Zoom } from 'react-reveal';
 
 const OrderList = () => {
     const [orders, setOrders] = useState([])
@@ -36,7 +36,8 @@ const OrderList = () => {
                 <SideBar />
                 <div className="border col-md-9" style={{ right: '0', position: 'absolute', backgroundColor: "#F4FDFB" }}>
                     <Zoom right cascade>
-                        <h2 className="text-center mt-3" style={{ color: 'rgba(98,171,0,255)' }}>Orders List</h2>                   </Zoom>
+                        <h2 className="text-center mt-3" style={{ color: 'rgba(98,171,0,255)' }}>Orders List</h2>
+                    </Zoom>
                     <table className="table">
                         <thead>
                             <tr>
@@ -62,7 +63,7 @@ const OrderList = () => {
                                     <td>
                                         <form action="">
                                             <select onChange={(e) => handleCheckStatus(e, order.orderData.books._id)} name="" id="" className="form-select form-select-lg mb-3" aria-label=".form-select-sm">
-                                                <option className="text-danger"  value="pending">Pending</option>
+                                                <option className="text-danger" value="pending">Pending</option>
                                                 <option className="text-success" selected value="Done">Done</option>
                                                 <option className="text-info" value="on going">On Going</option>
                                             </select>

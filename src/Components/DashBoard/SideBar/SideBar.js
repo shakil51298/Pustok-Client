@@ -24,7 +24,7 @@ const SideBar = () => {
         fetch(url, postMethod)
             .then(res => res.json())
             .then(isAdmindata => {
-                console.log(isAdmindata);
+                setIsAdmin(isAdmindata);
             })
     }, [])
     return (
@@ -40,16 +40,24 @@ const SideBar = () => {
                         <FontAwesomeIcon icon={faUsers} /> <span>Review</span>
                     </Link>
                 </li>
-                <li>
-                    <Link to="/orderList" className="text-white">
-                        <FontAwesomeIcon icon={faUserPlus} /> <span>Orders</span>
-                    </Link>
-                </li>
                 {
-                    isAdmin && loggedInUser.email && <div>
-                        <li>
+                    isAdmin && loggedInUser.email ? <li>
+                        <Link to="/orderList" className="text-white">
+                            <FontAwesomeIcon icon={faUserPlus} /> <span>Manage Order</span>
+                        </Link>
+                    </li>
+                        : <li>
                             <Link to="/orderList" className="text-white">
                                 <FontAwesomeIcon icon={faUserPlus} /> <span>Orders</span>
+                            </Link>
+                        </li>
+                }
+                {
+                    isAdmin && loggedInUser.email && <div>
+
+                        <li>
+                            <Link to="/manageShop" className="text-white">
+                                <FontAwesomeIcon icon={faUserPlus} /> <span>Manage Shop</span>
                             </Link>
                         </li>
                         <li>
