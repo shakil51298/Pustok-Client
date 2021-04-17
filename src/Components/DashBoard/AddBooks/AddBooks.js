@@ -3,6 +3,7 @@ import NavigationBar from '../../CommonComponents/NavigationBar/NavigationBar';
 import SideBar from '../SideBar/SideBar';
 import { useForm } from "react-hook-form";
 import axios from 'axios';
+import Zoom from 'react-reveal';
 
 const AddBooks = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
@@ -51,8 +52,10 @@ const AddBooks = () => {
             <div className="row">
                 <SideBar />
                 <div className="border col-md-9" style={{ right: '0', position: 'absolute', backgroundColor: "#F4FDFB" }}>
-                    <h3 className="mt-3 text-center  mb-3" style={{ color: 'rgba(98,171,0,255)' }}>Add New Books From Here</h3>
-                    <form onSubmit={handleSubmit(onSubmit)} >
+                    <Zoom right cascade>
+                        <h2 className="text-center mt-3" style={{ color: 'rgba(98,171,0,255)' }}>Add New Books From Here</h2>
+                    </Zoom>
+                    <form onSubmit={handleSubmit(onSubmit)} className="p-3">
 
                         <input className="form-control " placeholder="Book Name" {...register("booksName")} />
                         {errors.booksName && <span>This field is required</span>}

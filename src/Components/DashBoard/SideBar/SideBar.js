@@ -10,6 +10,7 @@ import { userContext } from '../../../App';
 const SideBar = () => {
     const [loggedInUser, setLoggedInUser] = useContext(userContext)
     const [isAdmin, setIsAdmin] = useState(false)
+    console.log(isAdmin);
     useEffect(() => {
         const url = 'http://localhost:5000/isAdmin'
         const loggedinuserEmial = loggedInUser.email;
@@ -20,10 +21,11 @@ const SideBar = () => {
                 'Content-type': 'application/json; charset=UTF-8',
             }
         }
-
         fetch(url, postMethod)
             .then(res => res.json())
-            .then(iAdmindata => setIsAdmin(iAdmindata))
+            .then(isAdmindata => {
+                console.log(isAdmindata);
+            })
     }, [])
     return (
         <div className="sidebar d-flex flex-column justify-content-between col-md-3 py-5 px-4" style={{ height: "100vh" }}>
@@ -40,11 +42,16 @@ const SideBar = () => {
                 </li>
                 <li>
                     <Link to="/orderList" className="text-white">
-                        <FontAwesomeIcon icon={faUsers} /> <span>Orders</span>
+                        <FontAwesomeIcon icon={faUserPlus} /> <span>Orders</span>
                     </Link>
                 </li>
                 {
-                    isAdmin && <div>
+                    isAdmin && loggedInUser.email && <div>
+                        <li>
+                            <Link to="/orderList" className="text-white">
+                                <FontAwesomeIcon icon={faUserPlus} /> <span>Orders</span>
+                            </Link>
+                        </li>
                         <li>
                             <Link to="/addAdmin" className="text-white">
                                 <FontAwesomeIcon icon={faUserPlus} /> <span>Add Admin</span>

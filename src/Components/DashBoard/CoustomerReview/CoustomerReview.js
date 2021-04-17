@@ -3,6 +3,7 @@ import NavigationBar from '../../CommonComponents/NavigationBar/NavigationBar';
 import SideBar from '../SideBar/SideBar';
 import { useForm } from "react-hook-form";
 import { userContext } from '../../../App';
+import {Zoom} from 'react-reveal';
 
 const CoustomerReview = () => {
     const [loggedInUser, setLoggedInUser] = useContext(userContext)
@@ -11,8 +12,8 @@ const CoustomerReview = () => {
 
     const onSubmit = data => {
         setUserReview(data)
-        
-        const review = {review : userReview , email : loggedInUser.email , userImg : loggedInUser.photoURL}
+
+        const review = { review: userReview, email: loggedInUser.email, userImg: loggedInUser.photoURL }
         const url = 'http://localhost:5000/review';
         const methodSend = {
             method: 'POST',
@@ -36,7 +37,9 @@ const CoustomerReview = () => {
             <div className="row">
                 <SideBar />
                 <div className="border col-md-9" style={{ right: '0', position: 'absolute', backgroundColor: "#F4FDFB" }}>
-                    <h3 className="mt-3 text-center  mb-3" style={{ color: 'rgba(98,171,0,255)' }}>Review</h3>
+                    <Zoom right cascade>
+                        <h2 className="text-center mt-3" style={{ color: 'rgba(98,171,0,255)' }}>Review</h2>
+                    </Zoom>
                     <form onSubmit={handleSubmit(onSubmit)} className="form">
                         <div class="mb-3">
                             <label for="exampleFormControlTextarea1" class="form-label">Your Name</label>

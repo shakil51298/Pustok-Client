@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import NavigationBar from '../../CommonComponents/NavigationBar/NavigationBar';
 import SideBar from '../SideBar/SideBar';
 import { useForm } from "react-hook-form";
+import { Zoom } from 'react-reveal';
 
 const AddAdmin = () => {
     const [adminData, setadminData] = useState({})
@@ -33,7 +34,10 @@ const AddAdmin = () => {
             <div className="row">
                 <SideBar />
                 <div className="border col-md-9" style={{ right: '0', position: 'absolute', backgroundColor: "#F4FDFB" }}>
-                    <form onSubmit={handleSubmit(onSubmit)} className="p-3">
+                    <Zoom right cascade>
+                        <h2 className="text-center mt-3" style={{ color: 'rgba(98,171,0,255)' }}>Add New Admin</h2>
+                    </Zoom>
+                    <form onSubmit={handleSubmit(onSubmit)} className="p-1 mb-5">
                         <div className="form-group">
                             <label htmlFor="exampleInputEmail1">Email address</label>
                             <input className="form-control" {...register("email")} />

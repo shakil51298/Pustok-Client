@@ -17,6 +17,7 @@ import OrderList from './Components/DashBoard/OrderList/OrderList';
 import AllAdmins from './Components/DashBoard/AllAdmins/AllAdmins';
 import CoustomerReview from './Components/DashBoard/CoustomerReview/CoustomerReview';
 import UserProfile from './Components/UserProfille/UserProfile';
+import DefaultProtectedPage from './Components/DefaultProtectedPage/DefaultProtectedPage';
 
 export const userContext = createContext()
 
@@ -24,7 +25,6 @@ function App() {
   const [loggedInUser, setLoggedInUser] = useState([])
   return (
     <userContext.Provider value={[loggedInUser, setLoggedInUser]}>
-      <h1>{loggedInUser.email}</h1>
       <Router>
         <Switch>
           <Route exact path="/">
@@ -33,9 +33,9 @@ function App() {
           <Route path="/login">
             <LoginPage />
           </Route>
-          <Route path="/dashboard">
+          <ProtectedPage path="/dashboard">
             <DashBoard/>
-          </Route>
+          </ProtectedPage>
           <ProtectedPage path="/checkOut/:booksId">
             <CheckOut/>
           </ProtectedPage>
@@ -54,12 +54,12 @@ function App() {
           <Route path="/payment/:bookId/:bookPrice">
             <PaymentGateWay/>
           </Route>
-          <Route path="/addAdmin">
+          <DefaultProtectedPage path="/addAdmin">
             <AddAdmin/>
-          </Route>
-          <Route path="/allAdmin">
+          </DefaultProtectedPage>
+          <DefaultProtectedPage path="/allAdmin">
             <AllAdmins/>
-          </Route>
+          </DefaultProtectedPage>
           <Route path="*">
             <NotFoundPage />
           </Route>

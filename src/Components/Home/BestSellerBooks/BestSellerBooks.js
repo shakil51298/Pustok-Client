@@ -4,25 +4,32 @@ import bestSellerAuthor from '../../../images/best-seller-author.jpg'
 import { useState } from 'react';
 import { useEffect } from 'react';
 import FeaturedBooksDate from '../../../FakeData/FeaturedBooksData/FeaturedBooksData';
+import {Fade} from 'react-reveal';
+import { motion } from 'framer-motion';
+
+
+
 const BestSellerBooks = () => {
     const sliceFormFeaturedBooksDate = FeaturedBooksDate.slice(5, 7)
     const [books, setBooks] = useState([])
     useEffect(() => {
         setBooks(sliceFormFeaturedBooksDate)
-    },[])
+    }, [])
     return (
         <div className="bestSeller mt-5 mb-5 container">
-            <h1 className="text-white text-center p-2 mb-3 text-uppercase brandTexts">best seller books</h1>
+            <Fade cascade top>
+                <h1 className="text-white text-center p-2 mb-3 text-uppercase brandTexts">best seller books</h1>
+            </Fade>
             <div className="row">
                 <div className="d-flex align-items-center">
-                    <div className="col-md-6 col-sm-12">
+                    <motion.div className="col-md-6 col-sm-12" whileHover={{ scale: 1.1 }} whileTap={{ duration: 0.5 }}>
                         <img className="ml-5" src={bestSellerAuthor} alt="/public" />
-                    </div>
+                    </motion.div>
                     <div className="col md-6">
                         <div className="row">
                             {
-                                books.map(book => <div className="card m-2">
-                                    <div className="col-md-12">
+                                books.map(book => <motion.div className="card m-2" whileHover={{ scale: 1.1 }} whileTap={{ duration: 0.5 }}>
+                                    <div className="col-sm-12">
                                         <div className="d-flex justify-content-end">
                                             <img src={book.img} alt="" width="120px" />
                                             <div className="text">{book.headLine}
@@ -35,7 +42,7 @@ const BestSellerBooks = () => {
                                             </div>
                                         </div>
                                     </div>
-                                </div>)
+                                </motion.div>)
                             }
                         </div>
                     </div>

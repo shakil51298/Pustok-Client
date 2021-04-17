@@ -1,15 +1,17 @@
+import { motion } from 'framer-motion';
 import React from 'react';
 import { useHistory } from 'react-router';
 import { Link } from 'react-router-dom';
+import { Fade } from 'react-reveal';
 
 const BooksCard = ({ bookData }) => {
-    const { BooksPrice, Discount , authorName , bookType ,booksImageUril,booksName ,description , _id} = bookData
+    const { BooksPrice, Discount, authorName, bookType, booksImageUril, booksName, description, _id } = bookData
     const history = useHistory()
-    const handleBooksDetails = () =>{
+    const handleBooksDetails = () => {
         history.push(`/checkOut/${_id}`)
     }
     return (
-        <div className="col-md-4 mt-5" style={{cursor:'pointer'}} onClick={handleBooksDetails}>
+        <motion.div className="col-md-4 mt-5 " style={{ cursor: 'pointer' }} onClick={handleBooksDetails} whileHover={{ scale: 1.1 }} whileTap={{ duration: 0.5 }}>
             <div className="shadow-lg card">
                 <p className="text-center mt-2">{bookType}</p>
                 <Link><p className="text-center text-uppercase">{description}</p></Link>
@@ -23,7 +25,7 @@ const BooksCard = ({ bookData }) => {
                     </div>
                 </div>
             </div>
-        </div>
+        </motion.div>
     );
 };
 
