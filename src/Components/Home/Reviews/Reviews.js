@@ -9,7 +9,8 @@ const Reviews = () => {
     useEffect(() => {
         axios('http://localhost:5000/reviews')
             .then(data => {
-                setReviews(data.data);
+                const reviewData = data.data
+                setReviews(reviewData);
             })
     }, [])
     return (

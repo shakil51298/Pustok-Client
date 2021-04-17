@@ -4,20 +4,23 @@ import { faStar, faStarHalfAlt, faTruckMoving } from '@fortawesome/free-solid-sv
 import './ReviewCard.css'
 import { Fade } from 'react-reveal';
 
-const ReviewCard = ({ UserReview }) => {
-    const { email, userImg, review } = UserReview;
+const ReviewCard = ({UserReview}) => {
+    const { review :{Occupation , UserName , description}  } = UserReview;
+    // const {review : {Occupation}} = UserReview;
+    console.log(Occupation );
+    // const { UserName , description} =  props.UserReview.review;
     return (
         <Fade duration={1000} distance ="40px" bottom >
             <div className="card mb-3 mt-5" style={{ maxWidth: '540px' }}>
                 <div className="row g-0">
                     <div className="col-md-4">
-                        <img src={userImg} width="100%" height="100%" alt="" />
+                        {/* <img src={userImg} width="100%" height="100%" alt="" /> */}
                     </div>
                     <div className="col-md-8">
                         <div className="card-body p-3" >
-                            <h5 className="card-title">{review.UserName}</h5>
-                            <p className="card-text">{review.Occupation}</p>
-                            <p className="card-text">{review.description}</p>
+                            {/* <h5 className="card-title">{UserName}</h5> */}
+                            {/* <p className="card-text">{Occupation}</p> */}
+                            {/* <p className="card-text">{description}</p> */}
                             <div className="d-flex justify-content-between align-items-center">
                                 <div className="card-text">
                                     <a href="#featureBooks">
