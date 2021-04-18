@@ -1,26 +1,24 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faStar, faStarHalfAlt, faTruckMoving } from '@fortawesome/free-solid-svg-icons'
+import { faStar, faStarHalfAlt } from '@fortawesome/free-solid-svg-icons'
 import './ReviewCard.css'
 import { Fade } from 'react-reveal';
 
-const ReviewCard = ({UserReview}) => {
-    const { review :{Occupation , UserName , description}  } = UserReview;
-    // const {review : {Occupation}} = UserReview;
-    console.log(Occupation );
-    // const { UserName , description} =  props.UserReview.review;
+const ReviewCard = ({ userReviews, userEmail, userImg }) => {
+        const {Occupation , UserName , description} = userReviews
+
     return (
-        <Fade duration={1000} distance ="40px" bottom >
+        <Fade duration={1000} distance="40px" bottom >
             <div className="card mb-3 mt-5" style={{ maxWidth: '540px' }}>
                 <div className="row g-0">
                     <div className="col-md-4">
-                        {/* <img src={userImg} width="100%" height="100%" alt="" /> */}
+                        <img src={userImg} width="100%" height="100%" alt="" />
                     </div>
                     <div className="col-md-8">
                         <div className="card-body p-3" >
-                            {/* <h5 className="card-title">{UserName}</h5> */}
-                            {/* <p className="card-text">{Occupation}</p> */}
-                            {/* <p className="card-text">{description}</p> */}
+                            <h5 className="card-title">{UserName}</h5>
+                            <p className="card-text">{Occupation}</p>
+                            <small><p className="card-text">{description}</p></small>
                             <div className="d-flex justify-content-between align-items-center">
                                 <div className="card-text">
                                     <a href="#featureBooks">

@@ -10,7 +10,6 @@ import { userContext } from '../../../App';
 const SideBar = () => {
     const [loggedInUser, setLoggedInUser] = useContext(userContext)
     const [isAdmin, setIsAdmin] = useState(false)
-    console.log(isAdmin);
     useEffect(() => {
         const url = 'http://localhost:5000/isAdmin'
         const loggedinuserEmial = loggedInUser.email;

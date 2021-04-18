@@ -31,7 +31,7 @@ const LoginPage = () => {
             .then((result) => {
                 const user = result.user;
                 setLoggedInUser(user);
-                sessionStorage.setItem('userEmail' , user.email)
+                // sessionStorage.setItem('userEmail' , user.email)
                 history.replace(from);
             })
             .catch((error) => {

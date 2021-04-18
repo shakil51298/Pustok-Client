@@ -1,16 +1,19 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import ReviewCard from '../ReviewCard/ReviewCard';
-import {Fade} from 'react-reveal';
+import { Fade } from 'react-reveal';
 
 
 const Reviews = () => {
-    const [reviews, setReviews] = useState([])
+
+    const [reviewsData, setReviewsData] = useState([])
+
     useEffect(() => {
-        axios('http://localhost:5000/reviews')
+        fetch('http://localhost:5000/reviews')
+            .then(res => res.json())
             .then(data => {
-                const reviewData = data.data
-                setReviews(reviewData);
+                setReviewsData(data);
+                console.log(data);
             })
     }, [])
     return (
@@ -20,7 +23,10 @@ const Reviews = () => {
             </Fade>
             <div className="row">
                 {
-                    reviews.map(review => <ReviewCard UserReview={review} />)
+                    reviewsData.length == 0 && <h2 className=" text-center mt-2">This Field Is Loading!!</h2>
+                }
+                {
+                    reviewsData.map(reviewData => <ReviewCard userEmail={reviewData.email} userImg={reviewData.userImg} userReviews={reviewData.review}></ReviewCard>)
                 }
             </div>
         </section>

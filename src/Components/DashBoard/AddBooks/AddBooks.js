@@ -42,7 +42,6 @@ const AddBooks = () => {
                 setBooksImgUrl(res.data.data.display_url)
             })
             .catch(error => {
-
                 console.log(error)
             })
     }
@@ -75,7 +74,7 @@ const AddBooks = () => {
                         <input className="form-control" placeholder="Discount" {...register("Discount", { required: true })} />
                         {errors.Discount && <span>This field is required</span>}
                         <br />
-                        <input onClick={handleUploadImage} className="form-control" type="file" placeholder="Upaload an Image" {...register("bookImage", { required: true })} />
+                        <input onChange={handleUploadImage} className="form-control" type="file" placeholder="Upaload an Image" {...register("bookImage", { required: true })} />
                         {errors.bookImage && <span>This field is required</span>}
                         <br />
                         <div className="text-center mb-3">

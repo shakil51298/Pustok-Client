@@ -11,6 +11,7 @@ const CheckOut = () => {
     const [book, setBook] = useState({})
     console.log(book);
     const history = useHistory()
+
     useEffect(() => {
         const url = 'http://localhost:5000/AllBooks'
         axios(url)
@@ -20,6 +21,7 @@ const CheckOut = () => {
                 setBook(FindFromDataBase);
             })
     }, [booksId])
+    
     const handSubmitConfrimOrder = (e) =>{
         history.push(`/payment/${book._id}/${book.BooksPrice}`)
         e.preventDefault()

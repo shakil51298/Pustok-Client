@@ -57,9 +57,6 @@ const ManageShop = () => {
                         <tbody>
                             {
                                 shopProducts.map((product, index) => <tr>
-                                    {
-                                        console.log(product)
-                                    }
                                     <td>{index + 1}</td>
                                     <td>{product.BooksPrice}</td>
                                     <td>{product.authorName}</td>

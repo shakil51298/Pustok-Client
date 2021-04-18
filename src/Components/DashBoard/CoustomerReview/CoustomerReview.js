@@ -7,7 +7,7 @@ import {Zoom} from 'react-reveal';
 
 const CoustomerReview = () => {
     const [loggedInUser, setLoggedInUser] = useContext(userContext)
-    const [userReview, setUserReview] = useState(null)
+    const [userReview, setUserReview] = useState({})
     const { register, handleSubmit, formState: { errors } } = useForm();
 
     const onSubmit = data => {
@@ -25,6 +25,7 @@ const CoustomerReview = () => {
         fetch(url, methodSend)
             .then(res => res.json())
             .then(data => {
+                alert('Thanks For Your Review')
                 console.log(data);
             })
     };
@@ -44,19 +45,19 @@ const CoustomerReview = () => {
                         <div class="mb-3">
                             <label for="exampleFormControlTextarea1" class="form-label">Your Name</label>
                             <br />
-                            <input type='text' className="form-control" placeholder="Md Khalid hossain" {...register("UserName")} />
+                            <input required type='text' className="form-control" placeholder="Md Khalid hossain" {...register("UserName")} />
                             {errors.UserName && <span>This field is required</span>}
                         </div>
                         <div class="mb-3">
                             <label for="exampleFormControlTextarea1" class="form-label">Occupation</label>
                             <br />
-                            <input type='text' placeholder="Doctor" className="form-control" {...register("Occupation", { required: true })} />
+                            <input required type='text' placeholder="Doctor" className="form-control" {...register("Occupation", { required: true })} />
                             {errors.Occupation && <span>This field is required</span>}
                         </div>
                         <div class="mb-3">
                             <label for="exampleFormControlTextarea1" class="form-label">Description</label>
                             <br />
-                            <textarea className="form-control" {...register("description", { required: true })} />
+                            <textarea required className="form-control" {...register("description", { required: true })} />
                             {errors.description && <span>This field is required</span>}
                         </div>
                         <div className="text-center mb-3">

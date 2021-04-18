@@ -31,7 +31,8 @@ const PaymentGateWay = () => {
             books: bookInfo,
             paymentId: payId,
             orderTime: new Date(),
-            UserData: loggedInUser
+            UserData: loggedInUser,
+            orderStatus : 'Pending'
         }
         const url = 'http://localhost:5000/addOrders'
         fetch(url, {

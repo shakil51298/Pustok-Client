@@ -21,7 +21,9 @@ const BooksCard = ({ bookData }) => {
                     <div className="row">
                         <div className="col-md-4"><small style={{ color: "rgba(98,171,0,255)" }}>{BooksPrice} $</small></div>
                         <div className="col-md-4"><small ><del>50$</del></small></div>
-                        <div className="col-md-4"><small className="badge bg-danger text-white">{Discount}</small></div>
+                        <div className="col-md-4">Offer
+                        <h1 className="badge bg-danger text-white">{Discount}%</h1>
+                        </div>
                     </div>
                 </div>
             </div>
