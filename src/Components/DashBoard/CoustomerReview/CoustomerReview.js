@@ -1,9 +1,12 @@
-import React, { useContext,  useState } from 'react';
+import React, { useContext, useState } from 'react';
 import NavigationBar from '../../CommonComponents/NavigationBar/NavigationBar';
 import SideBar from '../SideBar/SideBar';
 import { useForm } from "react-hook-form";
 import { userContext } from '../../../App';
-import {Zoom} from 'react-reveal';
+import { Zoom } from 'react-reveal';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 const CoustomerReview = () => {
     const [loggedInUser, setLoggedInUser] = useContext(userContext)
@@ -25,7 +28,15 @@ const CoustomerReview = () => {
         fetch(url, methodSend)
             .then(res => res.json())
             .then(data => {
-                alert('Thanks For Your Review')
+                toast.success('Thanks For Your Review', {
+                    position: "top-right",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                })
                 console.log(data);
             })
     };
@@ -66,6 +77,7 @@ const CoustomerReview = () => {
                     </form>
                 </div>
             </div>
+            <ToastContainer />
         </section>
     );
 };

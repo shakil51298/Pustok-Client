@@ -4,13 +4,13 @@ import SideBar from '../SideBar/SideBar';
 import { useForm } from "react-hook-form";
 import axios from 'axios';
 import Zoom from 'react-reveal';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const AddBooks = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
     const [booksImageUrl, setBooksImgUrl] = useState(null)
-    console.log(booksImageUrl);
     const onSubmit = data => {
-        console.log(data)
 
         const booksUploadingData = {
             booksImageUril: booksImageUrl,
@@ -28,7 +28,17 @@ const AddBooks = () => {
             headers: { 'Content-type': 'application/json' }
         }
         fetch(url, method)
-            .then(response => alert('Product uploaded successfully!!'));
+            .then(response => {
+                toast.success(('Books added Successfully!!'), {
+                    position: "top-center",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                });
+            });
     };
 
 
@@ -82,6 +92,17 @@ const AddBooks = () => {
                         </div>
                     </form>
                 </div>
+                <ToastContainer
+                    position="top-center"
+                    autoClose={5000}
+                    hideProgressBar={false}
+                    newestOnTop={false}
+                    closeOnClick
+                    rtl={false}
+                    pauseOnFocusLoss
+                    draggable
+                    pauseOnHover
+                />
             </div>
         </section>
     );

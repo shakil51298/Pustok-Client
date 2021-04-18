@@ -1,8 +1,10 @@
-import React, {useState } from 'react';
+import React, { useState } from 'react';
 import NavigationBar from '../../CommonComponents/NavigationBar/NavigationBar';
 import SideBar from '../SideBar/SideBar';
 import { useForm } from "react-hook-form";
 import { Zoom } from 'react-reveal';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const AddAdmin = () => {
     const [adminData, setadminData] = useState({})
@@ -21,10 +23,27 @@ const AddAdmin = () => {
         }
         )
             .then(result => {
-                alert(`you have added ${adminData.name} as a admin`)
+                alert()
+                toast.success((`you have added ${adminData.name} as a admin`), {
+                    position: "top-center",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                });
             })
             .catch(err => {
-                console.log(err);
+                toast.error((err), {
+                    position: "top-center",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                });
             })
     };
     return (
@@ -38,7 +57,7 @@ const AddAdmin = () => {
                     </Zoom>
                     <form onSubmit={handleSubmit(onSubmit)} className="p-1 mb-5">
                         <div className="form-group">
-                            <label  htmlFor="exampleInputEmail1">Email address</label>
+                            <label htmlFor="exampleInputEmail1">Email address</label>
                             <input type="email" className="form-control" {...register("email")} />
                             {errors.email && <span>This field is required</span>}
                         </div>
@@ -54,6 +73,17 @@ const AddAdmin = () => {
                 </div>
 
             </div>
+            <ToastContainer
+                position="top-center"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+            />
         </div>
     );
 };
