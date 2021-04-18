@@ -19,11 +19,6 @@ const UserProfile = () => {
         maxWidth: "345px",
         margin: 'auto',
     }
-
-    const center = {
-        margin: "auto",
-        padding: "10px"
-    }
     return (
         <Fade>
             <div className=" ">

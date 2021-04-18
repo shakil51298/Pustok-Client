@@ -18,7 +18,6 @@ if (!firebase.apps.length) {
 
 const LoginPage = () => {
 
-
     let history = useHistory();
     let location = useLocation();
 

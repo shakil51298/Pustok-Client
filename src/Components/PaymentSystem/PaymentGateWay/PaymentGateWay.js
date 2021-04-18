@@ -13,7 +13,7 @@ import 'react-toastify/dist/ReactToastify.css';
 const PaymentGateWay = () => {
     const stripePromise = loadStripe('pk_test_51IgsQHHwkiS9dXtM7bhfbMwUxyIpyw2KTWhDa0dk12T8Yb6mHPIhgXQuAWAX5Kh5EGSG5Z2oefbZGYFtxiBwr38b00yoRYh8Y2');
     const [loggedInUser, setLoggedInUser] = useContext(userContext)
-    const { bookId, bookPrice } = useParams()
+    const { bookId } = useParams()
     const [bookInfo, setBookInfo] = useState({})
     useEffect(() => {
         const url = 'http://localhost:5000/AllBooks'
