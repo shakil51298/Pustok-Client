@@ -6,16 +6,15 @@ import './ShippingAdvantage.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCalendarAlt, faCashRegister, faFilePrescription, faTruckMoving } from '@fortawesome/free-solid-svg-icons'
 import { motion } from 'framer-motion';
-import ScrollAnimation from 'react-animate-on-scroll';
 import "animate.css/animate.min.css";
 import {Fade } from 'react-reveal';
 
 const ShippingAdvantage = () => {
     return (
-        <Fade bottom duration={1000} distance ="40px">
+        <Fade bottom scale={1000} distance ="40px">
             <section className="container mt-5">
                 <div className="row">
-                    <motion.div className="col" whileHover={{ scale: 1.1 }} whileTap={{ duration: 0.5 }}>
+                    <motion.div className="col" whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.8 }}>
                         <div className="card p-4">
                             <div className="d-flex justify-content-between align-items-center">
                                 <FontAwesomeIcon className="icons" icon={faTruckMoving} />
@@ -26,7 +25,7 @@ const ShippingAdvantage = () => {
                             </div>
                         </div>
                     </motion.div>
-                    <motion.div className="col" whileHover={{ scale: 1.1 }} whileTap={{ duration: 0.5 }}>
+                    <motion.div className="col" whileHover={{ scale: 1.1 }} whileTap={{ scale: .8 }}>
                         <div className="card p-4">
                             <div className="d-flex justify-content-between align-items-center">
                                 <FontAwesomeIcon className="icons" icon={faCashRegister} />
@@ -50,7 +49,7 @@ const ShippingAdvantage = () => {
                             </div>
                         </div>
                     </motion.div>
-                    <motion.div className="col" whileHover={{ scale: 1.1 }} whileTap={{ duration: 0.5 }}>
+                    <motion.div className="col" whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.8 }}>
                         <div className="card p-4">
                             <div className="d-flex justify-content-between align-items-center">
                                 <FontAwesomeIcon className="icons" icon={faFilePrescription} />
@@ -63,10 +62,10 @@ const ShippingAdvantage = () => {
                     </motion.div>
                 </div>
                 <div className="row mt-5">
-                    <motion.div className="col-md-6" whileHover={{ scale: 1.1 }} whileTap={{ duration: 0.5 }}>
+                    <motion.div className="col-md-6" whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.5 }}>
                         <Link to="/"><img width="100%" src={cardImg} alt="" /></Link>
                     </motion.div>
-                    <motion.div className="col-md-6" whileHover={{ scale: 1.1 }} whileTap={{ duration: 0.5 }}>
+                    <motion.div className="col-md-6" whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.5 }}>
                         <Link to="/"><img src={cardImg2} width="100%" alt="" /></Link>
                     </motion.div>
                 </div>

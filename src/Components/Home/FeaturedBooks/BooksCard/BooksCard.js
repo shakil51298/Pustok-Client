@@ -11,7 +11,7 @@ const BooksCard = ({ bookData }) => {
         history.push(`/checkOut/${_id}`)
     }
     return (
-        <motion.div className="col-md-4 mt-5 " style={{ cursor: 'pointer' }} onClick={handleBooksDetails} whileHover={{ scale: 1.1 }} whileTap={{ duration: 0.5 }}>
+        <motion.div className="col-md-4 mt-5 " style={{ cursor: 'pointer' }} onClick={handleBooksDetails} whileHover={{ scale: 1.1 }} whileTap={{ scale: .9 }}>
             <div className="shadow-lg card">
                 <p className="text-center mt-2">{bookType}</p>
                 <Link><p className="text-center text-uppercase">{description}</p></Link>

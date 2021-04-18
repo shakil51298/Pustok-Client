@@ -5,6 +5,9 @@ import './SideBar.css'
 import { faCog, faSignOutAlt, faHome, faUserPlus, faFileAlt, faFolderPlus, faUser, faMailBulk, faRainbow } from '@fortawesome/free-solid-svg-icons';
 import { userContext } from '../../../App';
 
+import ReactDOM from "react-dom";
+import AnimatedBg from "react-animated-bg";
+
 
 
 const SideBar = () => {

@@ -25,9 +25,11 @@ const Reviews = () => {
                 {
                     reviewsData.length == 0 && <h2 className=" text-center mt-2">This Field Is Loading!!</h2>
                 }
-                {
-                    reviewsData.map(reviewData => <ReviewCard userEmail={reviewData.email} userImg={reviewData.userImg} userReviews={reviewData.review}></ReviewCard>)
-                }
+                <div className="mt-5 row">
+                    {
+                        reviewsData.map(reviewData => <ReviewCard userEmail={reviewData.email} userImg={reviewData.userImg} userReviews={reviewData.review}></ReviewCard>)
+                    }
+                </div>
             </div>
         </section>
     );

@@ -5,6 +5,7 @@ import carusel1 from '../../../images/caruesel-1.jpg'
 import carusel2 from '../../../images/caruesl-2.jpg'
 import carusel3 from '../../../images/caruesl-3.jpg'
 import Fade from 'react-reveal';
+import { motion } from 'framer-motion';
 
 const Carusell = () => {
 
@@ -14,7 +15,7 @@ const Carusell = () => {
         setIndex(selectedIndex);
     };
     return (
-        <Fade bottom distance='40px' duration ={1000}>
+        <Fade bottom distance='40px' duration={1000}>
             <Carousel activeIndex={index} onSelect={handleSelect} className="h-25">
                 <Carousel.Item>
                     <img
@@ -25,7 +26,11 @@ const Carusell = () => {
                     <Carousel.Caption className="text-danger">
                         <h3>First slide label</h3>
                         <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-                        <a href="#featureBooks"><button className="btn btn-outline-success">$78.09 - Learn More!</button></a>
+                        <a href="#featureBooks">
+                            <motion.button className="btn btn-outline-success" whileHover={{ scale: 1.1 }} whileTap={{ duration: 0.5 }}>
+                                $78.09 - Learn More!
+                            </motion.button>
+                        </a>
                     </Carousel.Caption>
                 </Carousel.Item>
                 <Carousel.Item>
@@ -38,7 +43,11 @@ const Carusell = () => {
                     <Carousel.Caption>
                         <h3>Second slide label</h3>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                        <a href="#featureBooks"><button className="btn btn-outline-success">$78.09 - Learn More!</button></a>
+                        <a href="#featureBooks">
+                            <motion.button className="btn btn-outline-success" whileHover={{ scale: 1.1 }} whileTap={{ duration: 0.5 }}>
+                                $78.09 - Learn More!
+                            </motion.button>
+                        </a>
                     </Carousel.Caption>
                 </Carousel.Item>
                 <Carousel.Item>
@@ -51,7 +60,11 @@ const Carusell = () => {
                     <Carousel.Caption>
                         <h3>Third slide label</h3>
                         <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-                        <a href="#featureBooks"><button className="btn btn-outline-success">$78.09 - Learn More!</button></a>
+                        <a href="#featureBooks">
+                            <motion.button className="btn btn-outline-success" whileHover={{ scale: 1.1 }} whileTap={{ duration: 0.5 }}>
+                                $78.09 - Learn More!
+                            </motion.button>
+                        </a>
                     </Carousel.Caption>
                 </Carousel.Item>
             </Carousel>
