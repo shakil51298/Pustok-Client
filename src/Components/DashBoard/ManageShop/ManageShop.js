@@ -15,7 +15,7 @@ const ManageShop = () => {
     const [shopProducts, setShopProducuts] = useState([])
 
     useEffect(() => {
-        axios('http://localhost:5000/AllBooks')
+        axios('https://vast-waters-34536.herokuapp.com/AllBooks')
             .then(data => {
                 setShopProducuts(data.data);
             })
@@ -23,7 +23,7 @@ const ManageShop = () => {
 
     const handleDeleteProdcut = (id) => {
 
-        const url = `http://localhost:5000/productDelete/${id}`
+        const url = `https://vast-waters-34536.herokuapp.com/productDelete/${id}`
         fetch(url, {
             method: "DELETE"
         })

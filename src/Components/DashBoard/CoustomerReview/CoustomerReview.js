@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext,  useState } from 'react';
 import NavigationBar from '../../CommonComponents/NavigationBar/NavigationBar';
 import SideBar from '../SideBar/SideBar';
 import { useForm } from "react-hook-form";
@@ -14,7 +14,7 @@ const CoustomerReview = () => {
         setUserReview(data)
 
         const review = { review: userReview, email: loggedInUser.email, userImg: loggedInUser.photoURL }
-        const url = 'http://localhost:5000/review';
+        const url = 'https://vast-waters-34536.herokuapp.com/review';
         const methodSend = {
             method: 'POST',
             body: JSON.stringify(review),

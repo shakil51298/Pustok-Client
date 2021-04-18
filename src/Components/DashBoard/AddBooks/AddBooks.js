@@ -21,7 +21,7 @@ const AddBooks = () => {
             Discount: data.Discount,
             BooksPrice: data.bPrice
         }
-        const url = 'http://localhost:5000/AddBookToShop';
+        const url = 'https://vast-waters-34536.herokuapp.com/AddBookToShop';
         const method = {
             method: "POST",
             body: JSON.stringify(booksUploadingData),

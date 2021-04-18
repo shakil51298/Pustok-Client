@@ -1,4 +1,3 @@
-import axios from 'axios';
 import React, { useContext, useEffect, useState } from 'react';
 import { userContext } from '../../../App';
 import NavigationBar from '../../CommonComponents/NavigationBar/NavigationBar';
@@ -9,7 +8,7 @@ const AllAdmins = () => {
     const [admins, setAdmins] = useState([])
     const [loggedInUser, setLoggedInUser] = useContext(userContext)
     useEffect(() => {
-        fetch('http://localhost:5000/AllAdmins')
+        fetch('https://vast-waters-34536.herokuapp.com/AllAdmins')
             .then(res => res.json())
             .then(data => {
                 setAdmins(data);

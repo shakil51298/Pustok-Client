@@ -16,7 +16,7 @@ const PaymentGateWay = () => {
     const { bookId } = useParams()
     const [bookInfo, setBookInfo] = useState({})
     useEffect(() => {
-        const url = 'http://localhost:5000/AllBooks'
+        const url = 'https://vast-waters-34536.herokuapp.com/AllBooks'
         axios(url)
             .then(data => {
                 const BookData = data.data
@@ -34,7 +34,7 @@ const PaymentGateWay = () => {
             UserData: loggedInUser,
             orderStatus : 'Pending'
         }
-        const url = 'http://localhost:5000/addOrders'
+        const url = 'https://vast-waters-34536.herokuapp.com/addOrders'
         fetch(url, {
             method: 'POST',
             body: JSON.stringify({ orderData }),

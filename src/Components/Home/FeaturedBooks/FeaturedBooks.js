@@ -9,7 +9,7 @@ import Fade from 'react-reveal/Fade';
 const FeaturedBooks = () => {
     const [books, setBooks] = useState([])
     useEffect(() => {
-        const url = "http://localhost:5000/AllBooks"
+        const url = "https://vast-waters-34536.herokuapp.com/AllBooks"
         fetch(url)
             .then(res => res.json())
             .then(data => {

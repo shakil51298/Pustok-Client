@@ -9,7 +9,7 @@ const SideBar = () => {
     const [loggedInUser, setLoggedInUser] = useContext(userContext)
     const [isAdmin, setIsAdmin] = useState(false)
     useEffect(() => {
-        const url = 'http://localhost:5000/isAdmin'
+        const url = 'https://vast-waters-34536.herokuapp.com/isAdmin'
         const loggedinuserEmial = loggedInUser.email;
         const postMethod = {
             method: 'POST',

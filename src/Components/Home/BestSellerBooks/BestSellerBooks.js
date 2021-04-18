@@ -14,7 +14,7 @@ const BestSellerBooks = () => {
     const [books, setBooks] = useState([])
     useEffect(() => {
         setBooks(sliceFormFeaturedBooksDate)
-    }, [sliceFormFeaturedBooksDate])
+    }, [])
     return (
         <div className="bestSeller mt-5 mb-5 container">
             <Fade cascade top>

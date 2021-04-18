@@ -13,7 +13,7 @@ const OrderList = () => {
 
     useEffect(() => {
         const userEmail = loggedInUser.email;
-        fetch('http://localhost:5000/orders', {
+        fetch('https://vast-waters-34536.herokuapp.com/orders', {
             method: 'POST',
             body: JSON.stringify({ userEmail }),
             headers: {
@@ -28,7 +28,7 @@ const OrderList = () => {
     }, [loggedInUser.email])
 
     useEffect(() => {
-        const url = 'http://localhost:5000/isAdmin'
+        const url = 'https://vast-waters-34536.herokuapp.com/isAdmin'
         const loggedinuserEmial = loggedInUser.email;
         const postMethod = {
             method: 'POST',
@@ -54,7 +54,7 @@ const OrderList = () => {
             }
         }
 
-        fetch('http://localhost:5000/updtaeBoooksInfo', methodPatch)
+        fetch('https://vast-waters-34536.herokuapp.com/updtaeBoooksInfo', methodPatch)
             .then(res => res.json())
             .then(data => {
                 console.log("updated");

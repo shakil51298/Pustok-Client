@@ -13,11 +13,11 @@ const CheckOut = () => {
     const history = useHistory()
 
     useEffect(() => {
-        const url = 'http://localhost:5000/AllBooks'
+        const url = 'https://vast-waters-34536.herokuapp.com/AllBooks'
         axios(url)
             .then(data => {
                 const BookData = data.data
-                const FindFromDataBase = BookData.find(book => book._id == booksId)
+                const FindFromDataBase = BookData.find(book => book._id === booksId)
                 setBook(FindFromDataBase);
             })
     }, [booksId])

@@ -11,7 +11,7 @@ const AddAdmin = () => {
         setadminData(data)
 
 
-        const url = 'http://localhost:5000/addAdmin';
+        const url = 'https://vast-waters-34536.herokuapp.com/addAdmin';
         fetch(url, {
             method: 'POST',
             body: JSON.stringify(adminData),
