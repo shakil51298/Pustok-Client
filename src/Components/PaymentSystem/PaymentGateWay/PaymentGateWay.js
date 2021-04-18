@@ -20,7 +20,7 @@ const PaymentGateWay = () => {
         axios(url)
             .then(data => {
                 const BookData = data.data
-                const FindFromDataBase = BookData.find(book => book._id == bookId)
+                const FindFromDataBase = BookData.find(book => book._id === bookId)
                 setBookInfo(FindFromDataBase);
             })
     }, [bookId])

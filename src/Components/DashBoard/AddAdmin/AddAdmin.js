@@ -1,5 +1,4 @@
-import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import React, {useState } from 'react';
 import NavigationBar from '../../CommonComponents/NavigationBar/NavigationBar';
 import SideBar from '../SideBar/SideBar';
 import { useForm } from "react-hook-form";
@@ -7,7 +6,7 @@ import { Zoom } from 'react-reveal';
 
 const AddAdmin = () => {
     const [adminData, setadminData] = useState({})
-    const { register, handleSubmit, watch, formState: { errors } } = useForm();
+    const { register, handleSubmit, formState: { errors } } = useForm();
     const onSubmit = data => {
         setadminData(data)
 

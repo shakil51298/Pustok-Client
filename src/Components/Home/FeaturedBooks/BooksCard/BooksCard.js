@@ -2,7 +2,6 @@ import { motion } from 'framer-motion';
 import React from 'react';
 import { useHistory } from 'react-router';
 import { Link } from 'react-router-dom';
-import { Fade } from 'react-reveal';
 
 const BooksCard = ({ bookData }) => {
     const { BooksPrice, Discount, authorName, bookType, booksImageUril, booksName, description, _id } = bookData
@@ -18,11 +17,12 @@ const BooksCard = ({ bookData }) => {
                 <img height="270px" src={booksImageUril} alt="" />
                 <div className="card-body">
                     <h5 className="text-center">{booksName}</h5>
+                    <h6 className="text-center">{authorName}</h6>
                     <div className="row">
                         <div className="col-md-4"><small style={{ color: "rgba(98,171,0,255)" }}>{BooksPrice} $</small></div>
-                        <div className="col-md-4"><small ><del>50$</del></small></div>
+                        <div className="col-md-4"><small ><del> 50$</del></small></div>
                         <div className="col-md-4">Offer
-                        <h1 className="badge bg-danger text-white">{Discount}%</h1>
+                        <h1 className="badge bg-danger text-white"> {Discount}%</h1>
                         </div>
                     </div>
                 </div>

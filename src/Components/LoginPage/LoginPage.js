@@ -77,7 +77,7 @@ const LoginPage = () => {
                                 :
                                 <button onClick={handleGooglelogout} className=" btn btn-outline-success w-50 m-1">Log Out</button>
                         }
-                        <p className="mt-2">Dont have an account? <a href="#">Create an account</a> </p>
+                        <p className="mt-2">Dont have an account? <a href="/">Create an account</a> </p>
                     </div>
                 </form>
             </div>

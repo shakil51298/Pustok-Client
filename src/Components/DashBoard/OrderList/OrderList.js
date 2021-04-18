@@ -25,7 +25,7 @@ const OrderList = () => {
             .then(data => {
                 setOrders(data)
             })
-    }, [])
+    }, [loggedInUser.email])
 
     useEffect(() => {
         const url = 'http://localhost:5000/isAdmin'
@@ -42,7 +42,7 @@ const OrderList = () => {
             .then(isAdmindata => {
                 setIsAdmin(isAdmindata);
             })
-    }, [])
+    }, [loggedInUser.email])
 
     const handleCheckStatus = (e, booksId) => {
         const statusValue = e.target.value;
@@ -89,7 +89,7 @@ const OrderList = () => {
                                     {
                                         console.log(order.orderData.orderStatus)
                                     }
-                                    <td scope="row">{index + 1}</td>
+                                    <th scope="row">{index + 1}</th>
                                     <td>{order.orderData.UserData.displayName}</td>
                                     <td>{order.orderData.UserData.email}</td>
                                     <td>{
@@ -101,9 +101,9 @@ const OrderList = () => {
                                         <form action="">
                                             {!isAdmin ? <div className="">
                                                 {
-                                                    order.orderData.orderStatus == "Pending" ? <p className="text-danger" style={{fontWeight:'1000'}}>Pending</p>
+                                                    order.orderData.orderStatus === "Pending" ? <p className="text-danger" style={{fontWeight:'1000'}}>Pending</p>
                                                         :
-                                                    order.orderData.orderStatus == "Done" ? <p className="text-Success" style={{fontWeight:'1000'}}>Done</p>
+                                                    order.orderData.orderStatus === "Done" ? <p className="text-Success" style={{fontWeight:'1000'}}>Done</p>
                                                         :
                                                         <p className="text-info" style={{fontWeight:'1000'}}>On Going</p>
 
@@ -112,13 +112,13 @@ const OrderList = () => {
                                                 :
                                                 <select onChange={(e) => handleCheckStatus(e, order.orderData.books._id)} name="" id="" className="form-select form-select-lg mb-3" aria-label=".form-select-sm">
                                                     <option className="text-danger" selected={
-                                                        order.orderData.orderStatus == "Pending"
+                                                        order.orderData.orderStatus === "Pending"
                                                     } value="Pending" >Pending</option>
                                                     <option className="text-success"  selected={
-                                                        order.orderData.orderStatus == "Done"
+                                                        order.orderData.orderStatus === "Done"
                                                     } value="Done">Done</option>
                                                     <option className="text-info" selected={
-                                                        order.orderData.orderStatus == "OnGoing"
+                                                        order.orderData.orderStatus === "OnGoing"
                                                     } value="OnGoing">On Going</option>
                                                 </select>
                                             }

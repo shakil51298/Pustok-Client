@@ -3,7 +3,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import clsx from 'clsx';
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
-import CardMedia from '@material-ui/core/CardMedia';
 import CardContent from '@material-ui/core/CardContent';
 import CardActions from '@material-ui/core/CardActions';
 import Collapse from '@material-ui/core/Collapse';
@@ -19,7 +18,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faStar, faStarHalfAlt } from '@fortawesome/free-solid-svg-icons'
 import './ReviewCard.css'
 import { Fade } from 'react-reveal';
-import { motion } from 'framer-motion';
 
 
 
@@ -55,10 +53,11 @@ const ReviewCard = ({ userReviews, userEmail, userImg }) => {
     const handleExpandClick = () => {
         setExpanded(!expanded);
     };
-    const { Occupation, UserName, description } = userReviews
+    const { UserName, description } = userReviews
     return (
-        <Fade duration={1000} distance="40px" bottom >
-            <div className="col-md-4" whileTap={{ scale: '.9' }}>
+
+        <div className="col-md-6">
+            <Fade duration={1000} distance="40px" bottom >
                 <Card className={classes.root} className="p-1 shadow-lg" >
                     <CardHeader
                         avatar={
@@ -86,6 +85,13 @@ const ReviewCard = ({ userReviews, userEmail, userImg }) => {
                         <IconButton aria-label="share">
                             <ShareIcon />
                         </IconButton>
+                        <div className="">
+                            <FontAwesomeIcon className="ratingIcon" icon={faStar} />
+                            <FontAwesomeIcon className="ratingIcon" icon={faStar} />
+                            <FontAwesomeIcon className="ratingIcon" icon={faStar} />
+                            <FontAwesomeIcon className="ratingIcon" icon={faStar} />
+                            <FontAwesomeIcon className="ratingIcon" icon={faStarHalfAlt} />
+                        </div>
                         <IconButton
                             className={clsx(classes.expand, {
                                 [classes.expandOpen]: expanded,
@@ -103,8 +109,9 @@ const ReviewCard = ({ userReviews, userEmail, userImg }) => {
                         </CardContent>
                     </Collapse>
                 </Card>
-            </div>
-        </Fade >
+            </Fade >
+        </div>
+
     );
 };
 
@@ -113,10 +120,3 @@ export default ReviewCard;
 
 
 
-{/* <div className="">
-    <FontAwesomeIcon className="ratingIcon" icon={faStar} />
-    <FontAwesomeIcon className="ratingIcon" icon={faStar} />
-    <FontAwesomeIcon className="ratingIcon" icon={faStar} />
-    <FontAwesomeIcon className="ratingIcon" icon={faStar} />
-    <FontAwesomeIcon className="ratingIcon" icon={faStarHalfAlt} />
-</div> */}

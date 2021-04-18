@@ -1,6 +1,6 @@
 > # PUSTOK :shipit:
 > ## [Live Site]().
-> ## ADVANTAGE OG THIS WEB APP :)
+> ## ADVANTAGE OF THIS WEB APP :)
 
 - Without login , user just can visit unresticted page.
 - if user want to visit resticted, then should log in first.

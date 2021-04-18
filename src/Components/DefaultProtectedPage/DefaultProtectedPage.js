@@ -24,7 +24,7 @@ const DefaultProtectedPage = ({ children, ...rest }) => {
             .then(isAdmindata =>{
                 setIsAdmin(isAdmindata);
             })
-    }, [])
+    }, [loggedInUser.email])
 
     return (
         <Route

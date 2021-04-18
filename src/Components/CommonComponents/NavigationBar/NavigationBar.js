@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Nav, Navbar, NavDropdown } from 'react-bootstrap';
+import { Nav, Navbar} from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import './NaviGationBar.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -20,7 +20,7 @@ const NavigationBar = () => {
   display: inline-block;
   animation: ${rotate} 2s linear infinite;
 `;
-    const [loggedInUser, serLoggedInUser] = useContext(userContext)
+    const [loggedInUser, setLoggedInUser] = useContext(userContext)
 
     return (
         <Navbar expand="lg">
@@ -36,7 +36,7 @@ const NavigationBar = () => {
                     
                     {
                         loggedInUser.email ? <Nav.Link ><Link to="/userProfile">
-                            <img className="ml-0 rounded-circle" width="40%" src={loggedInUser.photoURL} alt="profile photo" />
+                            <img className="ml-0 rounded-circle" width="40%" src={loggedInUser.photoURL} alt="profile" />
                         </Link>
                         </Nav.Link>
                             :
@@ -48,4 +48,4 @@ const NavigationBar = () => {
     );
 };
 
-export default NavigationBar; <Link to="/">Home</Link>
+export default NavigationBar;
