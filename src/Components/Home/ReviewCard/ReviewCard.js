@@ -18,6 +18,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faStar, faStarHalfAlt } from '@fortawesome/free-solid-svg-icons'
 import './ReviewCard.css'
 import { Fade } from 'react-reveal';
+import moment from 'moment';
 
 
 
@@ -46,7 +47,12 @@ const useStyles = makeStyles((theme) => ({
 
 
 
-const ReviewCard = ({ userReviews, userEmail, userImg }) => {
+const ReviewCard = ({ userReviews, userEmail, userImg ,date}) => {
+    const convertDate = (moment(date , 'YYYY/MM/DD'));
+    const getMonth = (convertDate.format('M'));
+    const getDay = (convertDate.format('D'));
+    const getYear = (convertDate.format('YYYY'));
+    const fullDate = ( getMonth +'/' + getDay +'/'+getYear);
     const classes = useStyles();
     const [expanded, setExpanded] = React.useState(false);
 
@@ -71,12 +77,13 @@ const ReviewCard = ({ userReviews, userEmail, userImg }) => {
                             </IconButton>
                         }
                         title={UserName}
-                        subheader="September 14, 2016"
+                        subheader={fullDate}
                     />
                     <CardContent>
                         <Typography variant="body2" color="textSecondary" component="p">
-                            expand this card for seeing full review
+                            Expand this card for seeing full review
                         </Typography>
+                        <p>{userEmail}</p>
                     </CardContent>
                     <CardActions disableSpacing>
                         <IconButton aria-label="add to favorites">

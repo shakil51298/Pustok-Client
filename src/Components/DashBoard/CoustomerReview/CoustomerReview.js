@@ -10,13 +10,11 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const CoustomerReview = () => {
     const [loggedInUser, setLoggedInUser] = useContext(userContext)
-    const [userReview, setUserReview] = useState({})
     const { register, handleSubmit, formState: { errors } } = useForm();
 
     const onSubmit = data => {
-        setUserReview(data)
-
-        const review = { review: userReview, email: loggedInUser.email, userImg: loggedInUser.photoURL }
+       console.log(data);
+        const review = { review: data, email: loggedInUser.email, userImg: loggedInUser.photoURL , date : new Date() }
         const url = 'https://vast-waters-34536.herokuapp.com/review';
         const methodSend = {
             method: 'POST',
@@ -37,7 +35,6 @@ const CoustomerReview = () => {
                     draggable: true,
                     progress: undefined,
                 })
-                console.log(data);
             })
     };
 

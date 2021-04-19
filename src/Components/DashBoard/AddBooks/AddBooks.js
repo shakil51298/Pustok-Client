@@ -84,9 +84,7 @@ const AddBooks = () => {
                         <input className="form-control" placeholder="Discount" {...register("Discount", { required: true })} />
                         {errors.Discount && <span>This field is required</span>}
                         <br />
-                        <input onChange={handleUploadImage} className="form-control" type="file" placeholder="Upaload an Image" {...register("bookImage", { required: true })} />
-                        {errors.bookImage && <span>This field is required</span>}
-                        <br />
+                        <input onChange={handleUploadImage} type="file"/>
                         <div className="text-center mb-3">
                             <input className="btn btn-outline-success w-50" type="submit" />
                         </div>
